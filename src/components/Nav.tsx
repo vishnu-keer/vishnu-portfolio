@@ -2,11 +2,24 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 /**
- * WEBRO mark — green "W" + globe + growth-line, rebuilt as crisp transparent SVG.
- * To use the exact raster logo instead, drop it at public/images/logo.png and
- * replace <Logo /> with: <img src="./images/logo.png" alt="WEBRO" className="h-7 w-7 object-contain" />
+ * WEBRO mark. Prefers your real logo at public/images/logo.png; if that file
+ * isn't present it falls back to a crisp SVG rendition so the nav is never broken.
+ * To use your exact logo: just drop the image at public/images/logo.png — no code change needed.
  */
 function Logo() {
+  const [useImg, setUseImg] = useState(true);
+
+  if (useImg) {
+    return (
+      <img
+        src="./images/logo.png"
+        alt="WEBRO"
+        className="h-[30px] w-auto object-contain"
+        onError={() => setUseImg(false)}
+      />
+    );
+  }
+
   return (
     <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <polyline points="24,32 40,22 56,31 74,19" stroke="#8BC34A" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />

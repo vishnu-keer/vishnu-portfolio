@@ -9,7 +9,7 @@ const stats: Stat[] = [
   { number: '7–14 Days', label: 'Avg. Turnaround' },
   { number: '5+', label: 'Service Verticals' },
   { number: 'India + Global', label: 'Clients Served' },
-  { number: 'Unique', label: 'Every Build' },
+  { number: '3D + AI', label: 'Signature Approach' },
 ];
 
 export default function About() {
